@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#ffd6e0,#ffb3c6);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Hearts container */
+#hearts-container{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0; /* behind card */
+}
+
+/* Dreamy Hearts */
+.heart {
+  position:absolute;
+  font-size: 20px;
+  color: #ff4d6d;
+  opacity:0.6;
+  animation: fall linear infinite; /* removed sway */
+  pointer-events:none;
+  user-select:none;
+}
+
+@keyframes fall{
+  0%{ transform: translateY(-50px); opacity:0;}
+  10%{ opacity:0.6; }
+  100%{ transform: translateY(110vh); opacity:0;}
+}
+
+@keyframes sway{
+  0%{ transform: translateX(0) rotate(0deg);}
+  50%{ transform: translateX(20px) rotate(180deg);}
+  100%{ transform: translateX(0) rotate(360deg);}
+}
+
+/* Sparkles */
+.sparkle{
+  position:absolute;
+  font-size:12px;
+  color:#ffb3c1;
+  opacity:0;
+  animation:sparkleFade 1s forwards;
+}
+
+@keyframes sparkleFade{
+  0%{ opacity:1; transform: scale(1);}
+  100%{ opacity:0; transform: scale(2) translateY(-10px);}
+}
+
+/* Slider Card */
+.slider{
+  width:90%;
+  max-width:750px;
+  background:white;
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  overflow:hidden;
+  z-index:1; /* above hearts */
+  position: relative;
+}
+
+/* Slide */
+.slide{
+  display:none;
+  padding:35px;
+  gap:25px;
+  align-items:center;
+  animation:fadeSlide 0.7s ease;
+}
+
+.slide.active{
+  display:flex;
+}
+
+/* Text */
+.text{
+  flex:1;
+}
+
+.text h1{
+  color:#ff4d6d;
+  margin-bottom:10px;
+}
+
+.text p{
+  color:#555;
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* Button */
+.next-btn{
+  margin-top:20px;
+  padding:10px 22px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.next-btn:hover{
+  background:#ff2f55;
+  transform:scale(1.05);
+}
+
+/* Image */
+.image{
+  flex:1;
+}
+
+.image img{
+  width:100%;
+  border-radius:20px;
+  animation:floatImg 3s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeSlide{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes floatImg{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .slide{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Hearts container -->
+<div id="hearts-container"></div>
+
+<div class="slider">
+
+  <div class="slide active">
+    <div class="text">
+      <h1>💖 To My Heart’s Home</h1>
+      <p>From the moment you entered my life, my heart found its place.<br>In a world full of chaos, your love is my calm. This little page is my heartbeat, reaching out to you.</p>
+      <button class="next-btn" onclick="nextSlide()">Next 💗</button>
+    </div>
+    <div class="image">
+      <img src="cat.jpg">
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="text">
+      <h1>🌍 Across Every Mile</h1>
+      <p>Distance is just a number when hearts are connected. Even when I can’t hold your hand, I hold you in my soul.<br>
+        Miles apart, but hearts always close.</p>
+      <button class="next-btn" onclick="nextSlide()">Next 💗</button>
+    </div>
+    <div class="image">
+      <img src="far.png">
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="text">
+      <h1>📸 Our Moments</h1>
+      <p>Our moments don’t fade with time — they live inside me, replaying as smiles, laughter, and quiet comfort.<br>Every memory with you is my favorite.</p>
+      <button class="next-btn" onclick="nextSlide()">Next 💗</button>
+    </div>
+    <div class="image">
+      <img src="us.jpg">
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="text">
+      <h1>💗 I Love You Soo Muchhh...</h1>
+      <p>You understand me. You care. You feel like home.You are the melody to my silence, the light to my shadows, the home my heart always longs for.</p>
+      <button class="next-btn" onclick="nextSlide()">Next 💗</button>
+    </div>
+    <div class="image">
+      <img src="cute.png">
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="text">
+      <h1>🌙 When I Miss You</h1>
+      <p>Nights are softer when I dream of you, and even in the silence, my heart whispers your name endlessly.<br>I miss you quietly, but love you loudly.</p>
+      <button class="next-btn" onclick="nextSlide()">Next 💗</button>
+    </div>
+    <div class="image">
+      <img src="miles.jfif">
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="text">
+      <h1>💌 My Promise</h1>
+      <p>No matter where life takes us, no matter how far the distance stretches, my heart will always find its way back to you.
+I promise to stand by you in your happiest days and your quiet, heavy nights.No matter the distance, I choose you — always.</p>
+      <button class="next-btn" onclick="goFirst()">Back to Start ♡</button>
+    </div>
+    <div class="image">
+      <img src="promise.jpg">
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Slider logic
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function nextSlide(){
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}
+
+function goFirst(){
+  slides[current].classList.remove("active");
+  current = 0;
+  slides[current].classList.add("active");
+}
+
+// Dreamy hearts
+const container = document.getElementById("hearts-container");
+
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15 + Math.random()*25) + "px";
+  heart.style.animationDuration = (6 + Math.random()*4) + "s, " + (3 + Math.random()*2) + "s";
+  heart.innerHTML = "💗";
+  container.appendChild(heart);
+
+  // Remove heart after animation and create sparkle
+  setTimeout(() => {
+    const rect = heart.getBoundingClientRect();
+    createSparkle(rect.left + rect.width/2, window.innerHeight - 20);
+    heart.remove();
+  }, 6000);
+}
+
+function createSparkle(x, y){
+  const sparkle = document.createElement("div");
+  sparkle.classList.add("sparkle");
+  sparkle.style.left = x + "px";
+  sparkle.style.top = y + "px";
+  sparkle.innerHTML = "✨";
+  container.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 1000);
+}
+
+// Generate hearts continuously
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
